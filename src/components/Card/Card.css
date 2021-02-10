@@ -1,5 +1,21 @@
 .Card {
+  display: grid;
+  grid-template-columns: 5fr 1fr;
   color: var(--color-primary);
   border-bottom: 1px solid;
   padding: 12px;
+}
+
+.Card__image {
+  border-radius: 5px;
+  height: 100px;
+}
+
+.Card__name {
+  color: grey;
+}
+
+.Card__details {
+  display: block;
+  font-size: 75%;
 }

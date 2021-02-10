@@ -4,6 +4,7 @@ import getCharacters from '../../services/getCharacters'
 import Card from '../../components/Card'
 
 export default function HomePage(cards) {
+  /* const tryout = createElement('div', { innerHTML: `Hi there, how are you` }) */
   const el = createElement('main', { className: 'HomePage' })
 
   getCharacters()
@@ -11,7 +12,7 @@ export default function HomePage(cards) {
     .catch(error => handleGetCharacterError(error))
 
   function createCards(characters) {
-    const cards = characters.map(character => Card(character.name))
+    const cards = characters.map(character => Card(character))
     document.body.append(...cards)
   }
 
