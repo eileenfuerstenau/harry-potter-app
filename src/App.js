@@ -1,27 +1,29 @@
 import AppHeader from './components/AppHeader'
-import getCharacters from './services/getCharacters'
-import Card from './components/Card'
-import createElement from './lib/createElement'
+import Navigation from './components/Navigation'
+import Grid from './components/Grid'
+import HomePage from './components/HomePage'
+import FavoritesPage from './components/FavoritesPage'
 
 export default function App() {
   const header = AppHeader('Harry Potter App')
-  document.body.append(header)
+  const navigation = Navigation(onNavigate)
+  const homePage = HomePage()
+  const favoritesPage = FavoritesPage()
+  const grid = Grid(header, homePage, favoritesPage, navigation)
 
-  getCharacters()
-    .then(characters => createCards(characters))
-    .catch(error => handleGetCharacterError(error))
+  document.body.append(grid)
 
-  function createCards(characters) {
-    const cards = characters.map(character => Card(character.name))
-    document.body.append(...cards)
-  }
+  function onNavigate(text) {
+    if (text === 'Home') {
+      console.log(text)
+      homePage.show()
+      favoritesPage.hide()
+    }
 
-  function handleGetCharacterError(error) {
-    const errorMessage = createElement(
-      'strong',
-      { style: 'color: crimson;' },
-      error.message
-    )
-    document.body.append(errorMessage)
+    if (text === 'Favorites') {
+      console.log(text)
+      homePage.hide()
+      favoritesPage.show()
+    }
   }
 }
