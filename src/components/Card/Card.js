@@ -7,23 +7,12 @@ export default function Card(character) {
     src: character.image,
   })
 
-  const name = createElement('h1', {
-    className: 'Card__name',
-    textContent: character.name,
-  })
-
-  const details = createElement('h1', {
+  const details = createElement('div', {
     className: 'Card__details',
-    innerHTML: `<h2> House: ${character.house} </h2> Birthday: ${character.dateOfBirth} </house>`,
+    innerHTML: `<h1> ${character.name} </h1> House: ${character.house} <br> Birthday: ${character.dateOfBirth} `,
   })
 
-  const el = createElement(
-    'section',
-    { className: 'Card' },
-    name,
-    image,
-    details
-  )
+  const el = createElement('section', { className: 'Card' }, details, image)
 
   return el
 }

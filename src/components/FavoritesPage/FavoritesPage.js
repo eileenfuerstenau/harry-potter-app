@@ -1,7 +1,7 @@
 import createElement from '../../lib/createElement'
 import './FavoritesPage.css'
 
-export default function FavoritesPage() {
+export default function FavoritesPage(hidden) {
   const el = createElement('main', { className: 'FavoritesPage', hidden: true })
 
   function show() {

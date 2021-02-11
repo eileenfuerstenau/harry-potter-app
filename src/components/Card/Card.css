@@ -6,16 +6,12 @@
   padding: 12px;
 }
 
+.Card__details {
+  font-size: 75%;
+  display: block;
+}
+
 .Card__image {
   border-radius: 5px;
   height: 100px;
-}
-
-.Card__name {
-  color: grey;
-}
-
-.Card__details {
-  display: block;
-  font-size: 75%;
 }
