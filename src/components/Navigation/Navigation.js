@@ -5,7 +5,7 @@ import homeSVG from '@fortawesome/fontawesome-free/svgs/solid/flag.svg'
 import favoritesSVG from '@fortawesome/fontawesome-free/svgs/solid/star.svg'
 
 const buttonsConfig = [
-  { svgPath: homeSVG, text: 'Home' },
+  { svgPath: homeSVG, text: 'All characters' },
   { svgPath: favoritesSVG, text: 'Favorites' },
 ]
 

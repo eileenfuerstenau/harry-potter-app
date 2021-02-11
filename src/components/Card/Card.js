@@ -9,7 +9,9 @@ export default function Card(character) {
 
   const details = createElement('div', {
     className: 'Card__details',
-    innerHTML: `<h1> ${character.name} </h1> House: ${character.house} <br> Birthday: ${character.dateOfBirth} `,
+    innerHTML: `<h1> ${character.name} </h1> House: ${
+      character.house || 'n.A.'
+    } <br> Birthday: ${character.dateOfBirth || 'n.A.'} `,
   })
 
   const el = createElement('section', { className: 'Card' }, details, image)
