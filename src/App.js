@@ -14,7 +14,7 @@ export default function App() {
   document.body.append(grid)
 
   function onNavigate(text) {
-    if (text === 'Home') {
+    if (text === 'All characters') {
       console.log(text)
       homePage.show()
       favoritesPage.hide()

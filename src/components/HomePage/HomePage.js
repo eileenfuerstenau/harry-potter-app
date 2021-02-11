@@ -13,7 +13,7 @@ export default function HomePage(cards) {
 
   function createCards(characters) {
     const cards = characters.map(character => Card(character))
-    document.body.append(...cards)
+    el.append(...cards)
   }
 
   function handleGetCharacterError(error) {
