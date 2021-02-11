@@ -1,0 +1,17 @@
+.Card {
+  display: grid;
+  grid-template-columns: 5fr 1fr;
+  color: var(--color-primary);
+  border-bottom: 1px solid;
+  padding: 12px;
+}
+
+.Card__details {
+  font-size: 75%;
+  display: block;
+}
+
+.Card__image {
+  border-radius: 5px;
+  height: 100px;
+}

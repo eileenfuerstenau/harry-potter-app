@@ -2,6 +2,10 @@
   display: none !important;
 }
 
+[hidden] {
+  display: none !important;
+}
+
 .m0 {
   margin: 0 !important;
 }
