@@ -5,4 +5,4 @@ export default {
   component: Button,
 }
 
-export const defaultCard = () => Button('Text')
+export const defaultCard = () => Button('Text').el

@@ -6,5 +6,5 @@
 }
 
 .selected {
-  background: forestgreen;
+  filter: grayscale(100%);
 }

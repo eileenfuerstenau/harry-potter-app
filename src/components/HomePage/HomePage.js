@@ -2,18 +2,39 @@ import createElement from '../../lib/createElement'
 import './HomePage.css'
 import getCharacters from '../../services/getCharacters'
 import Card from '../../components/Card'
+import HouseFilter from '../HouseFilter'
 
-export default function HomePage(cards) {
-  /* const tryout = createElement('div', { innerHTML: `Hi there, how are you` }) */
-  const el = createElement('main', { className: 'HomePage' })
+export default function HomePage() {
+  const houseFilter = HouseFilter(onFilterByHouse)
+  const cardContainer = createElement('div')
+  const el = createElement(
+    'div',
+    { className: 'HomePage' },
+    houseFilter,
+    cardContainer
+  )
+  let characters
 
   getCharacters()
-    .then(characters => createCards(characters))
+    .then(data => {
+      createCards(data)
+      characters = data
+    })
     .catch(error => handleGetCharacterError(error))
+
+  function onFilterByHouse(house) {
+    console.log('App says: ', house)
+    const filteredCharacters = characters.filter(
+      character => character.house === house
+    )
+
+    createCards(filteredCharacters)
+  }
 
   function createCards(characters) {
     const cards = characters.map(character => Card(character))
-    el.append(...cards)
+    cardContainer.innerHTML = ''
+    cardContainer.append(...cards)
   }
 
   function handleGetCharacterError(error) {
@@ -22,7 +43,7 @@ export default function HomePage(cards) {
       { style: 'color: crimson;' },
       error.message
     )
-    document.body.append(errorMessage)
+    el.append(errorMessage)
   }
   function show() {
     el.hidden = false

@@ -7,6 +7,7 @@ export default function HouseFilter(onFilterByHouse) {
   const buttons = houses.map(house => {
     const button = Button(house, () => {
       onFilterByHouse(house)
+      buttons.forEach(button => button.toggle(false))
       button.toggle()
     })
     return button
