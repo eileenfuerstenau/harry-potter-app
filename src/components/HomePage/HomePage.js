@@ -23,9 +23,8 @@ export default function HomePage() {
     .catch(error => handleGetCharacterError(error))
 
   function onFilterByHouse(house) {
-    console.log('App says: ', house)
     const filteredCharacters = characters.filter(
-      character => character.house === house
+      character => house == null || character.house === house
     )
 
     createCards(filteredCharacters)

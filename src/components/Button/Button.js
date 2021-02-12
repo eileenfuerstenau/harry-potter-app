@@ -3,20 +3,15 @@ import createElement from '../../lib/createElement'
 
 export default function Button(houses, onClick) {
   const el = createElement('span', {
-    className: 'Button__container',
     role: 'button',
-    innerHTML: `<img class="Button__housefilter" src="../../material/${houses.toLowerCase()}.png" height= 80>`,
+    innerHTML: `<img src="../../material/${houses.toLowerCase()}.png" alt="" height= 80>`,
   })
 
   el.addEventListener('click', onClick)
 
-  function toggle(force) {
-    el.classList.toggle('selected', force)
+  function toggle() {
+    el.classList.toggle('selected')
   }
 
-  function updateText(text) {
-    el.innerText = text
-  }
-
-  return { el, updateText, toggle }
+  return { el, toggle }
 }
