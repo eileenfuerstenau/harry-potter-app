@@ -2,7 +2,7 @@ import './Button.css'
 import createElement from '../../lib/createElement'
 
 export default function Button(houses, onClick) {
-  const el = createElement('span', {
+  const el = createElement('div', {
     role: 'button',
     innerHTML: `<img src="../../material/${houses.toLowerCase()}.png" alt="" height= 80>`,
   })

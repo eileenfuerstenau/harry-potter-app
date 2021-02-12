@@ -11,7 +11,7 @@ export default function HouseFilter(onFilterByHouse) {
     const button = Button(house, () => {
       currentFilter = currentFilter === house ? null : house
       onFilterByHouse(currentFilter)
-      buttons.forEach(button => button.toggle())
+      button.toggle()
     })
     return button
   })

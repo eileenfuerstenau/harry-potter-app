@@ -1,10 +1,11 @@
-.AppHeader {
+.Header {
   background: var(--color-primary);
-  color: var(--color-white);
-  padding: 12px;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
 }
 
-.AppHeader h1 {
+.Header__lettering {
   font-weight: 400;
   font-size: 1.2rem;
   text-align: center;
