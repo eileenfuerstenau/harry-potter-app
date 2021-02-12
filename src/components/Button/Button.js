@@ -9,7 +9,7 @@ export default function Button(houses, onClick) {
 
   el.addEventListener('click', onClick)
 
-  function toggle() {
+  function toggle(house) {
     el.classList.toggle('selected')
   }
 

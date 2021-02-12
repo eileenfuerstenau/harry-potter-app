@@ -11,7 +11,8 @@ export default function HouseFilter(onFilterByHouse) {
     const button = Button(house, () => {
       currentFilter = currentFilter === house ? null : house
       onFilterByHouse(currentFilter)
-      button.toggle()
+      console.log(currentFilter)
+      buttons.forEach(button => button.toggle(button.house === currentFilter))
     })
     return button
   })
@@ -19,3 +20,10 @@ export default function HouseFilter(onFilterByHouse) {
   const el = createElement('section', { className: 'HouseFilter' }, ...buttons)
   return el
 }
+
+/*
+      currentFilter = currentFilter === house ? null : house
+      onFilterByHouse(currentFilter)
+      buttons.forEach(button => button.toggle(button.text === currentFilter))
+    })
+*/

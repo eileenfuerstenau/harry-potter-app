@@ -8,7 +8,7 @@ export default function HomePage() {
   const houseFilter = HouseFilter(onFilterByHouse)
   const cardContainer = createElement('div')
   const el = createElement(
-    'div',
+    'main',
     { className: 'HomePage' },
     houseFilter,
     cardContainer
