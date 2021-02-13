@@ -44,6 +44,13 @@ export default function HomePage() {
     )
     el.append(errorMessage)
   }
+
+  function onSubmit(name, house, birthday) {
+    console.log(name)
+    console.log(house)
+    console.log(birthday)
+  }
+
   function show() {
     el.hidden = false
   }
@@ -56,5 +63,6 @@ export default function HomePage() {
     el,
     show,
     hide,
+    onSubmit,
   }
 }

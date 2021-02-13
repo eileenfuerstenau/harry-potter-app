@@ -1,7 +1,7 @@
 import './CreateForm.css'
 import createElement from '../../lib/createElement'
 
-export default function CreateForm() {
+export default function CreateForm(onSubmit) {
   const logo = createElement('img', { src: '../../material/wappen.png' })
   const addButton = createElement('button', {
     className: 'CreateForm__addButton',
@@ -11,7 +11,6 @@ export default function CreateForm() {
     className: 'name',
     placeholder: 'Add name..',
   })
-
   const houseInput = createElement('input', {
     className: 'house',
     placeholder: 'Add house...',
@@ -31,7 +30,7 @@ export default function CreateForm() {
     birthdayInput
   )
   form.append(nameInput, houseInput, birthdayInput)
-  /* */
+
   const createButton = createElement('button', {
     classList: 'CreateForm__createButton hidden',
     innerHTML: 'Create!',
@@ -46,6 +45,7 @@ export default function CreateForm() {
     form,
     createButton
   )
+  el.append(logo, addButton, form, createButton)
 
   addButton.addEventListener('click', () => {
     form.classList.toggle('hidden')
@@ -61,12 +61,16 @@ export default function CreateForm() {
       createButton.disabled = false
     }
     if (
-      nameInput.value.length !== 0 &&
-      houseInput.value.length !== 0 &&
+      nameInput.value.length === 0 &&
+      houseInput.value.length === 0 &&
       birthdayInput.value.length === 0
     ) {
       createButton.disabled = true
     }
+  })
+
+  form.addEventListener('submit', event => {
+    console.log('Done')
   })
 
   return {
