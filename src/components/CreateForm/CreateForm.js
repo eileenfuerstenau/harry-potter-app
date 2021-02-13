@@ -3,23 +3,33 @@ import createElement from '../../lib/createElement'
 
 export default function CreateForm() {
   const logo = createElement('img', { src: '../../material/wappen.png' })
-  const button = createElement('button', {
-    className: 'CreateForm__button',
+  const addButton = createElement('button', {
+    className: 'CreateForm__addButton',
     innerHTML: 'Add more',
   })
   const form = setupForm()
+  const createButton = createElement('button', {
+    classList: 'CreateForm__createButton, hidden',
+    innerHTML: 'Create!',
+  })
 
   const el = createElement(
     'main',
     { className: 'CreateForm' },
     logo,
-    button,
-    form
+    addButton,
+    form,
+    createButton
   )
+
+  addButton.addEventListener('click', () => {
+    form.classList.toggle('hidden')
+    createButton.classList.toggle('hidden')
+  })
 
   function setupForm() {
     const form = createElement('form', {
-      className: 'CreateForm',
+      classList: 'CreateForm__form, hidden',
     })
 
     const name = createElement('input', {
@@ -32,7 +42,7 @@ export default function CreateForm() {
       placeholder: 'Add house...',
     })
     const birthday = createElement('input', {
-      className: 'last',
+      className: 'birthday',
       placeholder: 'Add birthday...',
     })
 

@@ -1,4 +1,25 @@
 .CreateForm {
   display: grid;
+  justify-items: center;
+  gap: 10px;
+}
+
+.CreateForm__addButton {
+  color: black;
+  width: 110px;
+}
+
+.CreateForm__createButton {
+  color: black;
+  width: 110px;
+}
+
+input {
+  width: 100%;
+}
+
+.CreateForm__form {
+  display: grid;
+  justify-items: center;
   gap: 10px;
 }
