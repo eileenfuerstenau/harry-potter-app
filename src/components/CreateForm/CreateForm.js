@@ -7,10 +7,35 @@ export default function CreateForm() {
     className: 'CreateForm__addButton',
     innerHTML: 'Add more',
   })
-  const form = setupForm()
+  const nameInput = createElement('input', {
+    className: 'name',
+    placeholder: 'Add name..',
+  })
+
+  const houseInput = createElement('input', {
+    className: 'house',
+    placeholder: 'Add house...',
+  })
+  const birthdayInput = createElement('input', {
+    className: 'birthday',
+    placeholder: 'Add birthday...',
+  })
+
+  const form = createElement(
+    'form',
+    {
+      classList: 'CreateForm__form hidden',
+    },
+    nameInput,
+    houseInput,
+    birthdayInput
+  )
+  form.append(nameInput, houseInput, birthdayInput)
+  /* */
   const createButton = createElement('button', {
-    classList: 'CreateForm__createButton, hidden',
+    classList: 'CreateForm__createButton hidden',
     innerHTML: 'Create!',
+    disabled: true,
   })
 
   const el = createElement(
@@ -27,28 +52,22 @@ export default function CreateForm() {
     createButton.classList.toggle('hidden')
   })
 
-  function setupForm() {
-    const form = createElement('form', {
-      classList: 'CreateForm__form, hidden',
-    })
-
-    const name = createElement('input', {
-      className: 'first',
-      placeholder: 'Add name..',
-    })
-
-    const house = createElement('input', {
-      className: 'last',
-      placeholder: 'Add house...',
-    })
-    const birthday = createElement('input', {
-      className: 'birthday',
-      placeholder: 'Add birthday...',
-    })
-
-    form.append(name, house, birthday)
-    return form
-  }
+  form.addEventListener('input', event => {
+    if (
+      nameInput.value.length !== 0 &&
+      houseInput.value.length !== 0 &&
+      birthdayInput.value.length !== 0
+    ) {
+      createButton.disabled = false
+    }
+    if (
+      nameInput.value.length !== 0 &&
+      houseInput.value.length !== 0 &&
+      birthdayInput.value.length === 0
+    ) {
+      createButton.disabled = true
+    }
+  })
 
   return {
     el,
