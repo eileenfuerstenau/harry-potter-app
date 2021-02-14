@@ -3,15 +3,18 @@ import './HomePage.css'
 import getCharacters from '../../services/getCharacters'
 import Card from '../../components/Card'
 import HouseFilter from '../HouseFilter'
+import CreateForm from '../CreateForm'
 
 export default function HomePage() {
   const houseFilter = HouseFilter(onFilterByHouse)
   const cardContainer = createElement('div')
+  const createForm = CreateForm(onSubmit)
   const el = createElement(
     'main',
     { className: 'HomePage' },
     houseFilter,
-    cardContainer
+    cardContainer,
+    createForm
   )
   let characters
 
@@ -46,9 +49,24 @@ export default function HomePage() {
   }
 
   function onSubmit(name, house, birthday) {
-    console.log(name)
-    console.log(house)
-    console.log(birthday)
+    const image = createElement('img', {
+      className: 'Card__image',
+      src: 'https://loremflickr.com/70/100',
+    })
+
+    const details = createElement('div', {
+      className: 'Card__details',
+      innerHTML: `<h1> ${name} </h1> House: ${house} <br> Birthday: ${birthday} `,
+    })
+
+    const newCard = createElement(
+      'section',
+      { className: 'Card' },
+      details,
+      image
+    )
+
+    cardContainer.append(newCard)
   }
 
   function show() {

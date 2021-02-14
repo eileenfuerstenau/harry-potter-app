@@ -7,11 +7,13 @@
 .CreateForm__addButton {
   color: black;
   width: 110px;
+  margin: 10px;
 }
 
 .CreateForm__createButton {
   color: black;
   width: 110px;
+  margin: 10px;
 }
 
 input {

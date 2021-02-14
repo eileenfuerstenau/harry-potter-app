@@ -1,7 +1,7 @@
 import HomePage from './HomePage'
 
 export default {
-  title: 'Homepage',
+  title: 'Pages/Homepage',
   component: HomePage,
 }
 

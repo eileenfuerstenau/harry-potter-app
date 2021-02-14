@@ -4,8 +4,8 @@ import './FavoritesPage.css'
 export default function FavoritesPage(hidden) {
   const el = createElement('main', { className: 'FavoritesPage', hidden: true })
 
-  const test = createElement('div', {
-    innerHTML: `<img src="https://loremflickr.com/80/100">`,
+  const test = createElement('h1', {
+    innerHTML: `One day, you will see your favorite Harry Potter characters right here. One day. `,
   })
   el.append(test)
 
