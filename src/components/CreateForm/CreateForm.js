@@ -45,6 +45,7 @@ export default function CreateForm(onSubmit) {
 
   addButton.addEventListener('click', () => {
     form.classList.toggle('hidden')
+    nameInput.focus()
   })
 
   form.addEventListener('input', () => {
